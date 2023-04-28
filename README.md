@@ -1,18 +1,9 @@
-bangun blacklist monitor dengan mengikuti langkah ini https://github.com/mikelynn2/blacklistmonitor.git
 
-compile main.go:
-```
-go build -o blmon-exporter main.go
-```
-
-cara menggunakan exporter,:
-```
-blmon-exporter -api=<API key> [-port=<port number | default :8080>] [-link=<API link | default http://localhost/blacklistmonitor/api.php >]
-```
 
 To set up the blacklist monitor, follow these steps:
 
 Clone the repository from https://github.com/mikelynn2/blacklistmonitor.git.
+
 Compile the main.go file using the command:
 ```
 go build -o blmon-exporter main.go
