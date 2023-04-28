@@ -1,0 +1,170 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 663,
+    "iteration": 1682649787689,
+    "links": [],
+    "panels": [
+      {
+        "datasource": "prom-standalone",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": null,
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "blacklist_result"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 1010
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "host"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 197
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "IP Address"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 185
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 13,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "7.5.11",
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "blacklist_status{} != 0",
+            "format": "table",
+            "instant": true,
+            "interval": "",
+            "legendFormat": "{{ host }} - {{ blacklist_result }}",
+            "refId": "A"
+          }
+        ],
+        "title": "Listed",
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {
+                "Time": true,
+                "Value": true,
+                "__name__": true,
+                "instance": true,
+                "job": true
+              },
+              "indexByName": {
+                "Time": 0,
+                "Value": 6,
+                "__name__": 1,
+                "blacklist_result": 3,
+                "host": 2,
+                "instance": 4,
+                "job": 5
+              },
+              "renameByName": {
+                "__name__": "",
+                "blacklist_result": "Vendor - Link",
+                "host": "IP Address"
+              }
+            }
+          }
+        ],
+        "type": "table"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 27,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "datasource": "prom-standalone",
+          "description": null,
+          "error": null,
+          "filters": [],
+          "hide": 0,
+          "label": null,
+          "name": "Filters",
+          "skipUrlSync": false,
+          "type": "adhoc"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Blacklist Monitoring",
+    "uid": "XIrEPWyVk",
+    "version": 9
+  }
